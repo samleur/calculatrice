@@ -10,6 +10,8 @@
         input[type="text"] { width: 100%; }
         button { padding: 10px; }
     </style>
+    <!-- Ajouter la bibliothèque math.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.min.js"></script>
 </head>
 <body>
     <div class="calculator">
@@ -45,7 +47,8 @@
         }
         function calculateResult() {
             try {
-                const result = eval(document.getElementById('display').value);
+                const expression = document.getElementById('display').value;
+                const result = math.evaluate(expression);
                 document.getElementById('display').value = result;
             } catch (error) {
                 document.getElementById('display').value = 'Erreur';
